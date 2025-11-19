@@ -1,17 +1,15 @@
-public class CuentaBancaria {
+public class CuentaBancariaA {
     private String titular;
     private String numeroCuenta;
     private double saldo;
 
-    // Constructor por defecto
-    public CuentaBancaria() {
+    public CuentaBancariaA() {
         this.titular = "Sin nombre";
         this.numeroCuenta = "000000";
         this.saldo = 0.0;
     }
 
-    // Constructor parametrizado
-    public CuentaBancaria(String titular, String numeroCuenta, double saldo) {
+    public CuentaBancariaA(String titular, String numeroCuenta, double saldo) {
         if (titular == null || titular.trim().isEmpty()) {
             this.titular = "Sin nombre";
         } else {
@@ -24,7 +22,6 @@ public class CuentaBancaria {
             this.numeroCuenta = numeroCuenta;
         }
 
-        // CORREGIDO: saldo no puede ser negativo
         if (saldo < 0) {
             this.saldo = 0.0;
         } else {
@@ -32,7 +29,6 @@ public class CuentaBancaria {
         }
     }
 
-    // Método depositar
     public void depositar(double monto) {
         if (monto > 0) {
             saldo += monto;
@@ -42,7 +38,6 @@ public class CuentaBancaria {
         }
     }
 
-    // Método retirar 
     public void retirar(double monto) {
         if (monto <= 0) {
             System.out.println("Error: el monto a retirar debe ser mayor que 0.");
@@ -54,7 +49,6 @@ public class CuentaBancaria {
         }
     }
 
-    // Método toString
     @Override
     public String toString() {
         return "Titular: " + titular + 
@@ -62,7 +56,6 @@ public class CuentaBancaria {
                "\nSaldo: $" + String.format("%.2f", saldo);
     }
 
-    // Getters
     public String getTitular() {
         return titular;
     }
@@ -75,14 +68,13 @@ public class CuentaBancaria {
         return saldo;
     }
 
-    // Método main para probar la clase
     public static void main(String[] args) {
         System.out.println("=== Cuenta creada por defecto ===");
-        CuentaBancaria cuenta1 = new CuentaBancaria();
+        CuentaBancariaA cuenta1 = new CuentaBancariaA();
         System.out.println(cuenta1);
 
         System.out.println("\n=== Cuenta creada con parámetros ===");
-        CuentaBancaria cuenta2 = new CuentaBancaria("sian valencia", "123456", 1000);
+        CuentaBancariaA cuenta2 = new CuentaBancariaA("Leandro Carabalí", "123456", 1000);
         System.out.println(cuenta2);
 
         System.out.println("\n--- Operaciones ---");
